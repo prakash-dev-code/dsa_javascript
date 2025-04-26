@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Build Logic</h1>
+
+    <script>
+      // A => filter even number
+      // B  ==> make it double
+      // C ==> find the length manually
+      let data = [2, 4, 5, 8, 7, 9, 10];
+      let updatedData = [];
+      let length = 0;
+      for (let i = 0; i < data.length; i++) {
+        if (data[i] % 2 === 0) {
+          data[i] = data[i] * 2;
+
+          updatedData.push(data[i]);
+          length++;
+        }
+      }
+
+      console.log(data);
+      console.log(updatedData, "U", length);
+    </script>
+  </body>
+</html>

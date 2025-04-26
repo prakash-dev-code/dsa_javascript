@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>HASH Table</h1>
+    <script>
+      let user = {
+        name: "Prakash",
+        age: 30,
+        address: "Bangalore",
+        phone: 1234567890,
+      };
+      user.profile = "staff";
+      let newUser = new Map(Object.entries(user));
+      console.log(newUser, "USER");
+      console.log(user.size, "S");
+      for (const [key, value] of Object.entries(user)) {
+        console.log(`${key}: ${value} j`);
+      }
+
+      for (x in user) {
+        console.log(x, user[x]);
+      }
+    </script>
+  </body>
+</html>

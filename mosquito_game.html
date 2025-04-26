@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .playground {
+        width: 450px;
+        height: 450px;
+        display: flex;
+        justify-content: left;
+        /* align-items: center; */
+        background-color: #f0f0f0;
+        margin: 0 auto;
+      }
+      .mosquito {
+        position: relative;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <h1>Welcome to the Mosquito Game!</h1>
+    <p>Click the button below to start the game.</p>
+    <button id="start-button">Start Game</button> -->
+
+    <!-- <h1>Trades</h1> -->
+    <div class="playground">
+      <img
+        src="./Mosquito.png"
+        class="mosquito"
+        id="mosquito"
+        onclick="hitMosquito()"
+        width="30"
+        height="30"
+        alt="Mosquito"
+      />
+    </div>
+
+    <div class="controle">
+      <button onclick="start()">Start</button>
+      <h3><span>Total</span> <span class="totalHits">0</span></h3>
+    </div>
+    <script>
+      let totalHits = 0;
+      let total = document.querySelector(".totalHits");
+      let isGameStarted = false;
+      function start() {
+        totalHits = 0;
+        isGameStarted = true;
+        let mosquito = document.getElementById("mosquito");
+        let time = setInterval(() => {
+          let i = Math.floor(Math.random() * 400);
+          let j = Math.floor(Math.random() * 400);
+          mosquito.style.top = i + "px";
+          mosquito.style.left = j + "px";
+          console.log(i, j);
+        }, 1000);
+        setTimeout(() => {
+          clearInterval(time);
+          isGameStarted = false;
+          //   totalHits = 0;
+          console.log("Game Over");
+        }, 15000);
+      }
+      function hitMosquito() {
+        if (isGameStarted) {
+          totalHits++;
+          total.innerHTML = totalHits;
+          console.log(totalHits, "total hits");
+        }
+        // start();
+      }
+    </script>
+  </body>
+</html>

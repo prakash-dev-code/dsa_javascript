@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>palindrome</h1>
+    <script>
+      function isPalindrome(str) {
+        let start = 0;
+        let end = str.length - 1;
+        let result = true;
+        while (end >= start) {
+          if (str[start] !== str[end]) {
+            result = false;
+            break;
+          }
+
+          start++;
+          end--;
+        }
+        return result;
+      }
+
+      console.log(isPalindrome("dad"));
+    </script>
+  </body>
+</html>

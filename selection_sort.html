@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Selection Sort</h1>
+
+    <script>
+      let data = [40, 20, 30, 60, 70, 80, 50, 10, 5, 500];
+      for (let i = 0; i < data.length; i++) {
+        let minIndex = i;
+        for (let j = i + 1; j < data.length; j++) {
+          if (data[j] < data[minIndex]) {
+            minIndex = j;
+          }
+        }
+        if (minIndex !== i) {
+          [data[i], data[minIndex]] = [data[minIndex], data[i]];
+        }
+      }
+      console.log(data, "data");
+    </script>
+  </body>
+</html>

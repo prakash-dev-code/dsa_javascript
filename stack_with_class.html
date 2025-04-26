@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Stack with Class</h1>
+
+    <script>
+      class Stack {
+        item = [];
+        itemCount;
+        maxSize;
+        constructor(size) {
+          this.maxSize = size;
+          this.itemCount = this.item.length;
+        }
+        push(newValue) {
+          if (this.itemCount === this.maxSize) {
+            console.log("Stack is full");
+            return;
+          }
+          this.item[this.itemCount] = newValue;
+          this.itemCount++;
+        }
+        pop() {
+          if (this.itemCount === 0) {
+            console.log("Stack is empty");
+            return;
+          }
+
+          this.itemCount--;
+          let value = this.item[this.itemCount];
+          this.item.length = this.itemCount;
+          return value;
+        }
+        display() {
+          console.log(this.item);
+        }
+        reverseString(value) {
+          let reverersedValue = "";
+          for (let i = value.length - 1; i >= 0; i--) {
+            reverersedValue += value[i];
+            console.log(reverersedValue);
+          }
+        }
+      }
+      stack = new Stack(4);
+      stack.reverseString("Prakash");
+      // stack.push(50);
+      // stack.push(60);
+      // stack.push(70);
+      // stack.push(80);
+      // stack.push(90);
+      // stack.pop();
+
+      // stack.display();
+    </script>
+  </body>
+</html>

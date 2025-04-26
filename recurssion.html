@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recurssion</title>
+  </head>
+  <body>
+    <h1>Recursion</h1>
+
+    <script>
+      // Direct recurssion
+
+      //   function factorial(value) {
+      //     if (value == 0) {
+      //       return 1;
+      //     }
+
+      //     return value * factorial(value - 1);
+      //   }
+
+      //   let data = 5;
+      //   console.log(factorial(data));
+
+      // Indirect recurssion
+
+      // let money = 200;
+      // let hasFlowers = 0;
+      // function buyFlowers(m) {
+      //   if (m > 0) {
+      //     console.log("I have " + m + " RS and " + hasFlowers + " flower");
+      //     hasFlowers++;
+      //     buyMoreFlowers(m);
+      //   } else {
+      //     console.log("I bought " + hasFlowers + " Flowers");
+      //   }
+      // }
+
+      // function buyMoreFlowers(m) {
+      //   buyFlowers(m - 10);
+      // }
+
+      // buyFlowers(money);
+
+      // // Head and tail recurssion
+      // function recurssion(value) {
+      //   if (value > 0) {
+      //     recurssion(value - 1);
+      //   }
+      //   console.log(value);
+      // }
+
+      // recurssion(5);
+
+      // reverse array ==>
+
+      let data = [5, 12, 65, 89, 0, 100, 200];
+      let temp;
+      function customReverse(data, start, end) {
+        console.warn(data);
+        if (start <= end) {
+          temp = data[start];
+          data[start] = data[end];
+          data[end] = temp;
+          customReverse(data, start + 1, end - 1);
+        }
+      }
+
+      customReverse(data, 0, data.length - 1);
+    </script>
+  </body>
+</html>

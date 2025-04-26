@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Binary Search</h1>
+
+    <script>
+      let data = [5, 9, 13, 17, 45, 67, 89, 100];
+      let find = 89;
+      let start = 0;
+      let end = data.length - 1;
+      let position = undefined;
+      while (start <= end) {
+        let mid = Math.floor((start + end) / 2);
+        // console.warn(data[mid]);
+        if (data[mid] === find) {
+          position = mid;
+          break;
+        } else if (data[mid] < find) {
+          start = mid + 1;
+        } else {
+          end = mid - 1;
+        }
+      }
+      console.warn(position);
+
+      console.log(Math.floor(1.5));
+
+      //   Recursive Binary search
+      //   let data = [10, 15, 18, 34, 67, 70, 89];
+      //   let start = 0;
+      //   let end = data.length - 1;
+      //   let find = 15;
+      //   let position = undefined;
+      function recursiveBinary(data, start, end) {
+        mid = Math.floor((start + end) / 2);
+        if (data[mid] === find) {
+          position = mid;
+          return true;
+        } else if (data[mid] < find) {
+          recursiveBinary(data, mid + 1, end);
+        } else {
+          recursiveBinary(data, start, mid - 1);
+        }
+      }
+
+      recursiveBinary(data, start, end);
+      console.warn(position);
+    </script>
+  </body>
+</html>

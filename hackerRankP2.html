@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Trades</h1>
+    <script>
+      class LinkedList {
+        constructor(data) {
+          this.data = data;
+          this.next = null;
+        }
+      }
+
+      function printLinkedList(head) {
+        let currentNode = head;
+        while (currentNode !== null) {
+          // console.log(currentNode.data);
+          currentNode = currentNode.next;
+        }
+      }
+
+      const head = new LinkedList(10);
+      head.next = new LinkedList(20);
+
+      printLinkedList(head);
+
+      function insertNodeAtTail(head, data) {
+        const newNode = new LinkedList(data);
+        if (head === null) {
+          return newNode;
+        }
+        let currentNode = head;
+        while (currentNode.next !== null) {
+          currentNode = currentNode.next;
+        }
+        currentNode.next = newNode;
+        return head;
+      }
+
+      function insertNodeAtHead(head, data) {
+        const newNode = new SinglyLinkedListNode(data);
+        newNode.next = head;
+        return newNode;
+      }
+
+      // function insertNodeAtTail(head, data) {
+      //     const newNode = new SinglyLinkedListNode(data);
+
+      //     if (head === null) {
+      //         return newNode;
+      //     }
+
+      //     let current = head;
+      //     while (current.next !== null) {
+      //         current = current.next;
+      //     }
+
+      //     current.next = newNode;
+      //     return head;
+      // }
+
+      function deleteNode(index) {
+        let counter = 1;
+        let lead = this.head;
+        if (index === 1) {
+          this.head = this.head.next;
+        } else {
+          while (counter < index - 1) {
+            lead = lead.next;
+            counter++;
+          }
+          let nextNode = lead.next.next;
+          lead.next = nextNode;
+          console.warn(lead);
+        }
+      }
+      // console.log(insertNodeAtTail(head, 30));
+      // console.log(insertNodeAtTail(head, 40));
+
+      function bonAppetit(bill, k, b) {
+        const total = bill.reduce((acc, curr) => acc + curr, 0);
+        const annaShare = (total - bill[k]) / 2;
+        const difference = b - annaShare;
+
+        if (difference === 0) {
+          console.log("Bon Appetit");
+        } else {
+          console.log(difference);
+        }
+      }
+
+      // const bill = [3, 10, 2, 9];
+      // const k = 1;
+      // const b = 12;
+      // console.log(bonAppetit(bill, k, b)); // 5
+
+      function sockMerchant(n, ar) {
+        const colorCount = {};
+        let pairs = 0;
+
+        for (let sock of ar) {
+          colorCount[sock] = (colorCount[sock] || 0) + 1;
+        }
+
+        for (let color in colorCount) {
+          pairs += Math.floor(colorCount[color] / 2);
+        }
+
+        return pairs;
+      }
+
+      // console.log(sockMerchant(7, [1, 2, 1, 2, 1, 3, 2])); // 2
+
+      function pageCount(n, p) {
+
+        for (let i = 0; i < n; i++) {
+          if (i === p) {
+            return Math.floor(i / 2);
+          }
+        }
+        // return Math.floor((n - p) / 2);
+
+        // Write your code here
+      }
+      console.log(pageCount(6, 2)); // 1
+      console.log(pageCount(5, 4)); // 0
+      console.log(pageCount(20, 8)); // 0
+    </script>
+  </body>
+</html>

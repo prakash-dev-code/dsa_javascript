@@ -1,3 +1,41 @@
+DONE  => 53
+
+
 splice(start, deleteCount, item1, item2) 
 slice(start, end)
 array.indOf(item) => find the index of item in array
+Algorithm Complexity => it has two parts
+
+1. Time Complexity 
+2. Space Complexity
+
+* Algorithm Complexity is denoted by Big O notation.
+
+Time Complexity => numbers of lines of code to finish the execution . it should be less as much as possible.
+
+Space Complexity => space depend onf the size of code . it should be less as much as possible.
+
+[space complexity = auxiliary space + Input size] 
+
+* Search ==> 1. Linear search  2. Binary search
+* Traversal in DSA refers to the process of visiting each element of a data structure exactly once to perform some operation
+
+Recurssion ==> recursion is a technique where a function calls itself directly or indirectly to solve a problem.
+
+* in Stack ==> fist comes last out || last comes first out. [A stack follows the Last In, First Out (LIFO) principle.]
+
+* split method used to convert a string into a array of strings.
+* When we call a class first it calls its constructor. The constructor ensures that this memory is assigned with initial values.
+* Array , Queue and stack are linear data structures. and tree graph on nonlinear data structures.
+* [A Queue , tree, graph follows the First In, First Out (FIFO) principle.]
+* Enqueue means adding and dequeue means removing value.
+* First add value is front and last value is rear value. Rear ==> [50,40,30,20,10] <== Front  
+* Seraching has two methods => 1. Linear and  Binary search.
+* Binary always work on sorted data .
+* Time complexity is donating by "O" . 
+* 1 Time loop run = N ; {O(N)}
+* 2 Time loop run = N2; {O(N2)}
+* Anagram means has same characteristics in word . like cat = > tac, act. [same length and same characteristics in word]
+* A palindrome is a word, phrase, number, or sequence that reads the same forward and backward.
+* A binary tree is a hierarchical data structure in which each node has at most two children, referred to as the left child and the right child. [0 is the left child, 1 is the right child]
+* A Graph in Data Structures and Algorithms (DSA) is a non-linear data structure consisting of nodes (vertices) and edges that connect pairs of nodes. It is used to represent relationships between different entities, such as networks, maps, and social connections.

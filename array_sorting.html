@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array Sorting</title>
+  </head>
+  <body>
+    <h1>Array sorting</h1>
+    <script>
+      // Bubble Sort algorithm
+
+      let data = [20, 30, 40, 10, 50];
+      for (let i = 0; i < data.length; i++) {
+        for (let j = 0; j < data.length; j++) {
+          if (data[j] > data[j + 1]) {
+            //  10  > 20
+            let temp = data[j];
+            data[j] = data[j + 1];
+            data[j + 1] = temp;
+          }
+        }
+      }
+      console.log(data);
+    </script>
+  </body>
+</html>

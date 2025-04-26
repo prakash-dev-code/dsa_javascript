@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Tree DSA</h1>
+
+    <script>
+      class Node {
+        constructor(data) {
+          this.value = data;
+          this.left = null;
+          this.right = null;
+        }
+      }
+
+      class BinaryST {
+        constructor() {
+          this.root = null;
+        }
+        isEmtpy() {
+          return this.root === null;
+        }
+        insert(data) {
+          let newNode = new Node(data);
+
+          if (this.isEmtpy()) {
+            this.root = newNode;
+          } else {
+            this.insertNode(this.root, newNode);
+          }
+        }
+
+        insertNode(root, newNode) {
+          if (root.value > newNode.value) {
+            if (root.left === null) {
+              root.left = newNode;
+            } else {
+              this.insertNode(root.left, newNode);
+            }
+          } else {
+            if (root.right === null) {
+              root.right = newNode;
+            } else {
+              this.insertNode(root.right, newNode);
+            }
+          }
+        }
+        searchNode(root, data) {
+          if (root === null) {
+            return false;
+          } else if (root.value === data) {
+            return true;
+          } else if (root.value > data) {
+            return this.searchNode(root.left, data);
+          } else {
+            return this.searchNode(root.right, data);
+          }
+        }
+        preOrder(root) {
+          if (root) {
+            // console.log(root.value + " ");
+            this.preOrder(root.left);
+            this.preOrder(root.right);
+          }
+        }
+
+        // breadth first search
+        breadthFirstSearch() {
+          let queue = [];
+          queue.push(this.root);
+          while (queue.length) {
+            let node = queue.shift();
+            if (node.left) queue.push(node.left);
+            if (node.right) queue.push(node.right);
+            console.log(node.value);
+          }
+        }
+
+        minValue(root) {
+          if (!root.left) {
+            return root.value;
+          } else {
+            return this.minValue(root.left);
+          }
+        }
+        maxValue(root) {
+          if (!root.right) {
+            return root.value;
+          } else {
+            return this.maxValue(root.right);
+          }
+        }
+
+        removeData(value) {
+          this.root = this.deleteNode(this.root, value);
+        }
+        deleteNode(root, value) {
+          if (root === null) {
+            return null;
+          }
+          if (value < root.value) {
+            root.left = this.deleteNode(root.left, value);
+          } else if (value > root.value) {
+            root.right = this.deleteNode(root.right, value);
+          } else {
+            if (!root.left && !root.right) {
+              return null;
+            } else if (!root.left) {
+              return root.right;
+            } else if (!root.right) {
+              return root.left;
+            }
+            root.value = this.minValue(root.right);
+            root.right = this.deleteNode(root.right, root.value);
+          }
+          return root;
+        }
+      }
+
+      let nodeTree = new BinaryST();
+      console.log(nodeTree.insert(50));
+      console.log(nodeTree.insert(52));
+      console.log(nodeTree.insert(51));
+      console.log(nodeTree.insert(5));
+      console.log(nodeTree.insert(2));
+      console.log(nodeTree.insert(10));
+      console.log(nodeTree.insert(20));
+      console.log(nodeTree.insert(30));
+      console.log(nodeTree.insert(40));
+      console.log(nodeTree.insert(55));
+      console.log(nodeTree.insert(60));
+      console.log(nodeTree.insert(70));
+      // console.log(nodeTree, "N T");
+      // console.log(nodeTree.searchNode(nodeTree.root, 20) + " searched");
+      // console.log(nodeTree.preOrder(nodeTree.root) + " pro- order");
+      nodeTree.removeData(30);
+      console.log(nodeTree.breadthFirstSearch() + " breadthFirstSearch");
+      // console.log(nodeTree.minValue(nodeTree.root) + " min value");
+      // console.log(nodeTree.maxValue(nodeTree.root) + " max value");
+      //   console.log(nodeTree.isEmtpy(), "empty");
+      //   console.log(nodeTree.root + "root");
+    </script>
+  </body>
+</html>

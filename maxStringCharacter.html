@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Maximum string character repeated</h1>
+    <script>
+      //  let str="hello peter ooo";
+      // let strObj={};
+      // let maxKey='';
+      // for(let i=0;i<str.length;i++){
+      //     // console.warn(str[i])
+      //     let key=str[i];
+      //     if(!strObj[key]){
+      //         strObj[key]=0;
+      //     };
+      //     strObj[key]++;
+      //     if(maxKey == '' || strObj[key]>strObj[maxKey] )
+      //     {
+      //         maxKey=key;
+      //     }
+      // }
+      // console.warn(maxKey)
+      // console.warn(strObj)
+
+      function maxStringCharacter(str) {
+        let maxCount = 0;
+        let maxChar = "";
+        let charCount = {};
+
+        for (let i = 0; i < str.length; i++) {
+          let char = str[i];
+          if (charCount[char]) {
+            charCount[char]++;
+          } else {
+            charCount[char] = 1;
+          }
+
+          if (charCount[char] > maxCount) {
+            maxCount = charCount[char];
+            maxChar = char;
+          }
+        }
+
+        return `Maximum character is ${maxChar} and it is repeated ${maxCount} times`;
+      }
+
+      console.log(maxStringCharacter("Pradddddkash"));
+    </script>
+  </body>
+</html>

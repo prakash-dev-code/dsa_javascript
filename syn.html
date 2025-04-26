@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Sync</h1>
+    <!-- <p>In synchronous code, each line waits for the previous one to finish before executing.</p> -->
+    Synchronous (blocking) Asynchronous (Non-blocking)
+    <script>
+      //   console.log("1");
+
+      //   setTimeout(() => {
+      //     console.log("2");
+      //   }, 2000);
+
+      //   console.log("3");
+
+      console.log("Start");
+
+      for (let i = 0; i <= 10; i++) {
+        console.log(i + "loop");
+        // simulate heavy task
+      }
+
+      console.log("End");
+    </script>
+  </body>
+</html>

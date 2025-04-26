@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>Trades</h2>
+
+    <script>
+      // question 1
+      // let A = [10, 20, 30, 40];
+      let reverseA = [];
+      for (let i = A.length - 1; i >= 0; i--) {
+        reverseA[A.length - 1 - i] = A[i];
+      }
+
+      // question 2
+
+      function solveMeFirst(a, b) {
+        return Number(a + b);
+        // Hint: Type return a+b below
+      }
+
+      // question 3
+
+      function simpleArraySum(ar) {
+        return ar.reduce((a, c) => a + c, 0);
+        // Write your code here
+      }
+
+      let ar = [1, 2, 3, 4, 5];
+      // console.log(simpleArraySum(ar));
+
+      //       If a[i] > b[i], then Alice is awarded 1 point.
+      // If a[i] < b[i], then Bob is awarded 1 point.
+      // If a[i] = b[i], then neither person receives a point.
+
+      function compareTriplets(a, b) {
+        let a1 = 0;
+        let b1 = 0;
+        for (let i = 0; i < a.length; i++) {
+          if (a[i] > b[i]) {
+            a1++;
+          } else if (a[i] < b[i]) {
+            b1++;
+          }
+        }
+        return [a1, b1];
+      }
+      // let a = [5, 6, 7];
+      // let b = [3, 6, 10];
+      // console.log(compareTriplets(a, b));
+
+      // question 4
+
+      // let array = [1000000001, 1000000002, 1000000003, 1000000004, 1000000005];
+
+      function aVeryBigSum(ar) {
+        return ar.reduce((a, c) => a + c, 0);
+      }
+
+      // console.log(aVeryBigSum(array));
+      // question 5
+
+      let matrix = [1, 2, 3, 4, 5, 6, 9, 8, 9];
+      function diagonalDifference(arr) {
+        let n = arr.length;
+        let primary = 0;
+        let secondary = 0;
+
+        for (let i = 0; i < n; i++) {
+          primary += arr[i][i]; // Left-to-right
+          secondary += arr[i][n - i - 1]; // Right-to-left
+        }
+
+        return Math.abs(primary - secondary);
+      }
+      // question 6
+
+      // There are  elements: two positive, two negative and one zero. Their ratios are ,  and . Results are printed as:
+
+      let number = [-4, 3, -9, 0, 4, 1];
+      function plusMinus(arr) {
+        let positive = 0;
+        let negative = 0;
+        let zero = 0;
+        let n = arr.length;
+        for (let i = 0; i < n; i++) {
+          if (arr[i] > 0) {
+            positive++;
+          } else if (arr[i] < 0) {
+            negative++;
+          } else {
+            zero++;
+          }
+        }
+        let positiveRatio = (positive / n).toFixed(6);
+        let negativeRatio = (negative / n).toFixed(6);
+        let zeroRatio = (zero / n).toFixed(6);
+        return `${positiveRatio}\n${negativeRatio}\n${zeroRatio}`;
+      }
+
+      // console.log(plusMinus(number));
+
+      function staircase(n) {
+        let result = "";
+        for (let i = 1; i <= n; i++) {
+          let space = " ".repeat(n - i);
+          let hash = "#".repeat(i);
+
+          result += `${space}${hash}\n`;
+        }
+        return result;
+      }
+
+      // console.log(staircase(6));
+
+      function miniMaxSum(arr) {
+        let min = arr[0];
+        let max = arr[0];
+        let sum = 0;
+        for (let i = 0; i < arr.length; i++) {
+          sum += arr[i];
+          if (arr[i] < min) {
+            min = arr[i];
+          }
+          if (arr[i] > max) {
+            max = arr[i];
+          }
+        }
+        let minSum = sum - max;
+        let maxSum = sum - min;
+        return console.log(`${minSum} ${maxSum}`);
+        // Write your code here
+      }
+
+      // let arr = [6, 2, 3, 4, 5];
+      // console.log(miniMaxSum(arr));
+
+      function birthdayCakeCandles(candles) {
+        let max = Math.max(...candles);
+        let count = 0;
+        for (let i = 0; i < candles.length; i++) {
+          if (candles[i] === max) {
+            count++;
+          }
+        }
+        return count;
+
+        // Write your code here
+      }
+
+      // console.log(birthdayCakeCandles([3, 2, 1, 5, 9, 9]));
+
+      function timeConversion(s) {
+        let period = s.slice(-2);
+
+        let timeParts = s.slice(0, -2).split(":");
+
+        let [hours, minutes, seconds] = timeParts;
+
+        let hoursNum = parseInt(hours);
+
+        if (period === "PM") {
+          if (hoursNum < 12) {
+            hoursNum += 12;
+          }
+        } else {
+          if (hoursNum === 12) {
+            hoursNum = 0;
+          }
+        }
+
+        hours = hoursNum.toString().padStart(2, "0");
+        return `${hours}:${minutes}:${seconds}`;
+      }
+
+      function hourglassSum(arr) {
+        let maxSum = -Infinity; // because numbers can be negative
+
+        for (let i = 0; i <= 3; i++) {
+          for (let j = 0; j <= 3; j++) {
+            let top = arr[i][j] + arr[i][j + 1] + arr[i][j + 2];
+            let mid = arr[i + 1][j + 1];
+            let bottom = arr[i + 2][j] + arr[i + 2][j + 1] + arr[i + 2][j + 2];
+
+            let sum = top + mid + bottom;
+            maxSum = Math.max(maxSum, sum);
+          }
+        }
+
+        return maxSum;
+      }
+
+      function rotateLeft(d, arr) {
+        let n = arr.length;
+        d = d % n;
+        let rotatedArray = arr.slice(d).concat(arr.slice(0, d));
+        return rotatedArray;
+      }
+
+      //  console.log(rotateLeft(4, [1, 2, 3, 4, 5]));
+
+      // Question 7
+      function gradingStudents(grades) {
+        let result = [];
+        for (let grade of grades) {
+          let nextMultiple = Math.ceil(grade / 5) * 5;
+          let difference = nextMultiple - grade;
+
+          if (difference < 3 && grade >= 38) {
+            result.push(nextMultiple);
+          } else {
+            result.push(grade);
+          }
+        }
+        return result;
+        // Write your code here
+      }
+      function countApplesAndOranges(s, t, a, b, apples, oranges) {
+        let applesOnHouse = apples.filter((distance) => {
+          let landingPosition = a + distance;
+          return landingPosition >= s && landingPosition <= t;
+        }).length;
+
+        let orangesOnHouse = oranges.filter((distance) => {
+          let landingPosition = b + distance;
+          return landingPosition >= s && landingPosition <= t;
+        }).length;
+      }
+
+      // Question ==>
+      function kangaroo(x1, v1, x2, v2) {
+        // Check if it's possible for them to meet
+        if (v1 === v2) {
+          return x1 === x2 ? "YES" : "NO";
+        }
+
+        const n = (x2 - x1) / (v1 - v2);
+
+        // They meet only if `n` is a positive integer
+        return n >= 0 && Number.isInteger(n) ? "YES" : "NO";
+      }
+
+      // Write your code here
+      // console.log(kangaroo(0, 2, 5, 3)); // should return "YES"
+
+      function getTotalX(a, b) {
+        let lcm = (a) => {
+          let gcd = (x, y) => (y === 0 ? x : gcd(y, x % y));
+          return a.reduce((acc, val) => (acc * val) / gcd(acc, val), 1);
+        };
+        let gcd = (b) => {
+          let gcd = (x, y) => (y === 0 ? x : gcd(y, x % y));
+          return b.reduce((acc, val) => gcd(acc, val), b[0]);
+        };
+        let lcmA = lcm(a);
+        let gcdB = gcd(b);
+        let count = 0;
+        for (let i = lcmA; i <= gcdB; i += lcmA) {
+          if (gcdB % i === 0) {
+            count++;
+          }
+        }
+        return count;
+
+        // Write your code here
+      }
+
+      // console.log(getTotalX([2, 4], [16, 32, 96]));
+      // Question ==>
+
+      function breakingRecords(scores) {
+        let minCount = 0;
+        let maxCount = 0;
+        let minScore = scores[0];
+        let maxScore = scores[0];
+        for (let i = 1; i < scores.length; i++) {
+          if (scores[i] > maxScore) {
+            maxScore = scores[i];
+            maxCount++;
+          } else if (scores[i] < minScore) {
+            minScore = scores[i];
+            minCount++;
+          }
+        }
+        return [maxCount, minCount];
+
+        // Write your code here
+      }
+
+      // question ==>
+      // console.log(breakingRecords([10, 5, 20, 20, 4, 5, 2, 25, 1]));
+
+      function birthday(s, d, m) {
+        let count = 0;
+        const n = s.length;
+        if (m > n) return 0;
+        for (let i = 0; i <= n - m; i++) {
+          let sum = 0;
+          for (let j = 0; j < m; j++) {
+            sum += s[i + j];
+          }
+          if (sum === d) {
+            count++;
+          }
+        }
+        return count;
+      }
+      // console.log(birthday([1, 2, 1, 3, 2], 3, 2)); // should return 2
+
+      function divisibleSumPairs(n, k, ar) {
+        let count = 0;
+        for (let i = 0; i < n; i++) {
+          for (let j = i + 1; j < n; j++) {
+            if ((ar[i] + ar[j]) % k === 0) {
+              count++;
+            }
+          }
+        }
+        return count;
+      }
+
+      // divisibleSumPairs(n,k,array)
+      // console.log(divisibleSumPairs(6, 3, [1, 3, 2, 6, 1, 2]));
+
+      function migratoryBirds(arr) {
+        const counts = arr.reduce((acc, id) => {
+          acc[id] = (acc[id] || 0) + 1;
+          return acc;
+        }, {});
+
+        const maxFreq = Math.max(...Object.values(counts));
+
+        return Math.min(
+          ...Object.entries(counts)
+            .filter(([_, freq]) => freq === maxFreq)
+            .map(([id]) => Number(id))
+        );
+      }
+
+      // console.log(migratoryBirds([1, 2, 3, 4, 5, 4, 3, 2, 1, 3, 4]));
+
+      function matchingStrings(stringList, queries) {
+        const sameLength = [];
+        for (let i = 0; i < queries.length; i++) {
+          let count = 0;
+          for (let j = 0; j < stringList.length; j++) {
+            if (queries[i] === stringList[j]) {
+              count++;
+            }
+          }
+          sameLength.push(count);
+        }
+        // Write your code here
+        return sameLength;
+      }
+
+      // let sList = ["ab", "ab", "abc"];
+      // let qList = ["ab", "abc", "bc"];
+
+      // console.log(matchingStrings(sList, qList));
+
+      function arrayManipulation(n, queries) {
+        const arr = new Array(n + 2).fill(0); // extra space for b+1
+
+        for (const [a, b, k] of queries) {
+          arr[a] += k;
+          arr[b + 1] -= k;
+        }
+
+        let max = 0;
+        let current = 0;
+
+        for (let i = 1; i <= n; i++) {
+          current += arr[i];
+          if (current > max) max = current;
+        }
+
+        return max;
+      }
+
+      // const n = 10;
+      // const queries = [
+      //   [1, 5, 3],
+      //   [4, 8, 7],
+      //   [6, 9, 1],
+      // ];
+      // console.log(arrayManipulation(n, queries));
+
+
+
+      // console.log(printLinkedList(2));
+      // console.log(printLinkedList(16));
+      // console.log(printLinkedList(13));
+      // console.log(printLinkedList(0));
+    </script>
+  </body>
+</html>

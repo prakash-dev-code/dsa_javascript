@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stack and que</title>
+  </head>
+  <body>
+    <h1>Stack and Queue</h1>
+
+    <script>
+      // let name = "Prakash Sahu";
+      // let stack = "";
+      // for (let i = name.length - 1; i >= 0; i--) {
+      //   stack += name[i];
+      // }
+
+      let name = "Prakash";
+      let stack = [];
+
+      // Push characters onto the stack
+      for (let i = 0; i < name.length; i++) {
+        stack.push(name[i]); // Stack stores characters in order
+      }
+
+      // Pop characters off the stack to reverse the order
+      name = "";
+      while (stack.length > 0) {
+        name += stack.pop(); // LIFO: Last character out first
+      }
+
+      let array = [];
+
+      let currentSize = array.length;
+      let currentValue;
+
+      function addValue(value) {
+        array[currentSize] = value;
+        currentSize++;
+      }
+
+      addValue(40);
+      addValue(60);
+      addValue(70);
+
+      function removeValue() {
+        if (currentSize === 0) {
+          return;
+        }
+
+        currentSize--;
+
+        currentValue = array[currentSize];
+
+        array.length = currentSize;
+
+        return currentValue;
+      }
+      removeValue();
+
+      let users = ["Prakash", "Sahu", "Raj", "Kumar"];
+
+      let userCount = users.length;
+      // let userValue;
+
+      function pushMethod(value) {
+        users[userCount] = value;
+        userCount++;
+      }
+
+      pushMethod("Rajesh");
+      function popMethod() {
+        if (userCount === 0) {
+          return;
+        }
+        userCount--;
+        let userValue = users[userCount];
+        users.length = userCount;
+        return userValue;
+      }
+      // removeValue();
+
+      // console.log(array);
+
+      popMethod();
+      // console.log(users);
+
+      // Reverse String
+    </script>
+  </body>
+</html>

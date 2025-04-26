@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Anagram String</h1>
+    <script>
+      function isAnagram(str1, str2) {
+        let objStr1 = {};
+
+        if (str1.length !== str2.length) {
+          return "lenth is not equal";
+        }
+        for (ch of str1) {
+          objStr1[ch] = (objStr1[ch] || 0) + 1;
+        }
+        for (ch of str2) {
+          if (!objStr1[ch]) {
+            return "String is not matched";
+          }
+          objStr1[ch]--;
+        }
+        return "Its Anagram words";
+      }
+      console.log(isAnagram("hello", "hello"));
+    </script>
+  </body>
+</html>

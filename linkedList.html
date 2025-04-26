@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Linked List DSA</h1>
+
+    <script>
+      class Link {
+        constructor(data) {
+          this.head = {
+            value: data,
+            next: null,
+          };
+          this.tail = this.head;
+          this.length = 1;
+        }
+        appendData(nodeData) {
+          const newNode = {
+            value: nodeData,
+            next: null,
+          };
+          this.tail.next = newNode;
+          this.tail = newNode;
+          this.length++;
+        }
+        traversering() {
+          let counter = 0;
+          let currentNode = this.head;
+          while (counter < this.length) {
+            currentNode = currentNode.next;
+            console.log(currentNode, "traversing");
+            counter++;
+          }
+        }
+        deleteNode(index) {
+          let counter = 1;
+          let lead = this.head;
+          if (index === 1) {
+            this.head = this.head.next;
+          } else {
+            while (counter < index - 1) {
+              lead = lead.next;
+              counter++;
+            }
+            let nextNode = lead.next.next;
+            lead.next = nextNode;
+            console.warn(lead);
+          }
+        }
+      }
+
+      let newData = new Link(100);
+      newData.appendData(200);
+      newData.appendData(300);
+      // newData.appendData(400);
+      // newData.appendData(500);
+      // newData.appendData(600);
+      // newData.traversering();
+      // newData.deleteNode(3);
+
+      // console.log(newData, "NEW DATA");
+      console.log(newData, "NEW DATA");
+
+      // Traverserring the linked list
+    </script>
+  </body>
+</html>
