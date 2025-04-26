@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Merge array</h1>
+  </body>
+  <script>
+    let firstArray = [1, 2, 3, 4, 5];
+    let secondArray = [6, 7, 8, 9, 10];
+    let thirdArray = [];
+
+    // console.log(data.splice(0, 1, 0));
+    for (let i = 0; i < firstArray.length; i++) {
+      thirdArray[i] = firstArray[i];
+      // console.log(thirdArray, "FIRST LOOP")
+    }
+    for (let i = 0; i < secondArray.length; i++) {
+      thirdArray[firstArray.length + i] = secondArray[i];
+      // console.log(thirdArray, "SECOND LOOP")
+    }
+
+    // console.log(thirdArray.reverse());
+    console.log(thirdArray, "THIRD ARRAY")
+
+    // merge two array with while loop 
+  </script>
+</html>
